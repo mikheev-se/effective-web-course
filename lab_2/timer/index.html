@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Timer</title>
+  </head>
+  <body>
+    <main>
+      <div id="timer">
+        <div id="time-buttons">
+          <button id="button-onemin">1 min</button>
+          <button id="button-fivemin">5 min</button>
+          <button id="button-tenmin">10 min</button>
+        </div>
+        <div id="inputs">
+          <input id="input-minutes" value="0" min="0" /> :
+          <input id="input-seconds" value="00" min="0" max="59" />
+        </div>
+        <div id="control-buttons">
+          <button id="button-start">Start</button>
+          <button id="button-stop">Stop</button>
+          <button id="button-reset">Reset</button>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="index.js"></script>
+</html>
