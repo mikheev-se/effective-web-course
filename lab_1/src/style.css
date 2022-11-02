@@ -5,9 +5,28 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text-black: #2d3436;
+  --text-purple: #6c5ce7;
+  --shadow-1: #26323814;
+  --shadow-2: #26323829;
+  --shadow-3: #2632381f;
+  --shadow-4: #2632381a;
+  --light-gray: #adadad;
+  --feature-pink: #e84393;
+  --feature-blue: #0984e3;
+  --feature-purple: #6c5ce7;
+  --feature-green: #00b894;
+  --button-purple: #6c5ce7;
+  --orange: #fdcb6e;
+  --highlight-red: #d63031;
+  --highlight-green: #55efc4;
+  --Inter: 'Inter', sans-serif;
+}
+
 body > * {
-  font-family: 'Inter', sans-serif;
-  color: #2d3436;
+  font-family: var(--Inter);
+  color: var(--text-black);
 }
 
 h1 {
@@ -61,8 +80,8 @@ a {
 /* Nav bar */
 nav {
   width: 100%;
-  box-shadow: 0px 4px 8px 0px #26323814;
-  box-shadow: 0px 2px 4px 0px #26323829;
+  box-shadow: 0px 4px 8px 0px var(--shadow-1);
+  box-shadow: 0px 2px 4px 0px var(--shadow-2);
   display: flex;
   align-items: center;
   background: white;
@@ -101,13 +120,13 @@ nav {
 
 .nav__pages__link {
   margin: 8px 16px;
-  color: #6c5ce7;
+  color: var(--text-purple);
 }
 
 .nav__pages__link::after {
   position: relative;
   left: 16px;
-  color: #fdcb6e;
+  color: var(--orange);
   content: '•';
 }
 
@@ -125,14 +144,14 @@ nav {
 
   width: 170px;
   height: 64px;
-  background-color: #6c5ce7;
+  background-color: var(--button-purple);
   border-radius: 999px;
   outline: none;
   border: none;
 
   cursor: pointer;
 
-  color: #ffffff;
+  color: white;
   font-size: 24px;
   font-weight: 700;
   line-height: 36px;
@@ -176,11 +195,11 @@ main {
 }
 
 .image-grid__title {
-  text-shadow: 0px 4px 0px #ffffff;
+  text-shadow: 0px 4px 0px white;
 }
 
 .image-grid__highlight {
-  color: #d63031;
+  color: var(--highlight-red);
   position: relative;
 }
 
@@ -195,7 +214,7 @@ main {
   left: -5px;
   bottom: -2px;
 
-  background: #55efc4;
+  background: var(--highlight-green);
   border-radius: 999px;
   z-index: -1;
 }
@@ -279,7 +298,7 @@ main {
   letter-spacing: -0.5px;
 
   border-radius: 999px;
-  background: #6c5ce7;
+  background: var(--text-purple);
   width: 270px;
   height: 82px;
 
@@ -292,7 +311,7 @@ main {
 
 .image-captions {
   position: absolute;
-  text-shadow: 0px 4px 0px #000000;
+  text-shadow: 0px 4px 0px black;
   color: white;
 
   padding: 16px;
@@ -379,22 +398,22 @@ main {
 }
 
 .icon__phone {
-  background-color: #e84393;
+  background-color: var(--feature-pink);
   background-image: url('./img/icon-phone-call.png');
 }
 
 .icon__chart {
-  background-color: #0984e3;
+  background-color: var(--feature-blue);
   background-image: url('./img/icon-pie-chart.png');
 }
 
 .icon__zap {
-  background-color: #6c5ce7;
+  background-color: var(--feature-purple);
   background-image: url('./img/icon-zap.png');
 }
 
 .icon__thumb {
-  background-color: #00b894;
+  background-color: var(--feature-green);
   background-image: url('./img/icon-thumbs-up.png');
 }
 
@@ -413,7 +432,7 @@ main {
   width: 146px;
   border-radius: 0px;
   background: none;
-  border: 1px solid #adadad;
+  border: 1px solid var(--light-gray);
   border-radius: 15px;
 
   font-size: 18px;
@@ -421,7 +440,7 @@ main {
   line-height: 32px;
   letter-spacing: 0.20000000298023224px;
   text-align: center;
-  color: #6c5ce7;
+  color: var(--text-purple);
 
   margin-top: 15px;
 }
@@ -433,7 +452,7 @@ main {
 
 .prices__subheader {
   margin-top: 34px;
-  color: #adadad;
+  color: var(--light-gray);
   text-align: center;
 }
 
@@ -445,7 +464,7 @@ main {
 
 .prices__billing-option:hover,
 .prices__billing-option--selected {
-  color: #6c5ce7;
+  color: var(--text-purple);
 }
 
 .prices__billing-option:hover::after,
@@ -459,7 +478,7 @@ main {
   bottom: 0px;
   left: 0;
 
-  background-color: #fdcb6e;
+  background-color: var(--orange);
 }
 
 .prices__billing-cards {
@@ -482,7 +501,7 @@ main {
 }
 
 .prices__billing-card--prior {
-  box-shadow: 0px 16px 24px 0px #26323814, 0px 8px 8px 0px #2632381f;
+  box-shadow: 0px 16px 24px 0px var(--shadow-1), 0px 8px 8px 0px var(--shadow-3);
 }
 
 .prices__billing-card--prior::after {
@@ -508,14 +527,14 @@ main {
   font-weight: 700;
   line-height: 32px;
   letter-spacing: 0.20000000298023224px;
-  color: #6c5ce7;
+  color: var(--text-purple);
 
   display: flex;
   justify-content: space-between;
 }
 
 .card__name--best-option {
-  border: 1px solid #6c5ce7;
+  border: 1px solid var(--text-purple);
   border-radius: 15px;
   width: 90px;
   padding: 8px;
@@ -527,7 +546,7 @@ main {
   text-align: center;
   text-transform: uppercase;
 
-  color: #2d3436;
+  color: var(--text-black);
 }
 
 .card__price {
@@ -561,7 +580,7 @@ main {
   cursor: pointer;
   outline: none;
   background: none;
-  border: 1px solid #adadad;
+  border: 1px solid var(--light-gray);
   height: 64px;
   border-radius: 15px;
 
@@ -570,20 +589,20 @@ main {
   line-height: 32px;
   letter-spacing: 0.20000000298023224px;
   text-align: center;
-  color: #6c5ce7;
+  color: var(--text-purple);
 
   margin-top: auto;
 }
 
 .prices__billing-card--prior .card__proceed {
-  background-color: #6c5ce7;
+  background-color: var(--button-purple);
 
   font-size: 24px;
   font-weight: 700;
   line-height: 36px;
   letter-spacing: 0.25px;
   text-align: center;
-  color: #ffffff;
+  color: white;
 }
 
 .card__procs {
@@ -644,7 +663,7 @@ footer {
   align-items: center;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #adadad;
+  color: var(--light-gray);
 
   margin-bottom: 16px;
 }
@@ -661,7 +680,7 @@ footer {
   font-size: 32px;
   line-height: 48px;
   letter-spacing: -0.5px;
-  color: #6c5ce7;
+  color: var(--text-purple);
   position: relative;
   top: -8px;
 }
@@ -731,14 +750,14 @@ footer {
 
   font-weight: 400;
   letter-spacing: 0px;
-  color: #2d3436;
+  color: var(--text-black);
 
   background-repeat: no-repeat;
   background-position: right 4px top 4px;
 }
 
 .form__contacts::placeholder {
-  color: #2d3436;
+  color: var(--text-black);
   opacity: 1;
 }
 
@@ -755,7 +774,7 @@ footer {
 
   resize: none;
 
-  color: #6c5ce7;
+  color: var(--text-purple);
 
   background-image: url('./img/icon-edit.svg');
   background-repeat: no-repeat;
@@ -763,7 +782,7 @@ footer {
 }
 
 .input__message::placeholder {
-  color: #6c5ce7;
+  color: var(--text-purple);
   opacity: 1;
 }
 
@@ -772,7 +791,7 @@ footer {
   height: 80px;
   border-radius: 16px;
 
-  background: #6c5ce7;
+  background: var(--button-purple);
 
   font-weight: 700;
   font-size: 24px;
@@ -780,7 +799,7 @@ footer {
   text-align: center;
   letter-spacing: 0.25px;
 
-  color: #ffffff;
+  color: white;
 
   text-shadow: 0px 2px 4px rgba(38, 50, 56, 0.16),
     0px 4px 8px rgba(38, 50, 56, 0.08);
@@ -790,7 +809,8 @@ footer {
 }
 
 .form__submit:active {
-  box-shadow: 0px 16px 32px 0px #26323814, 0px 8px 24px 0px #2632381a;
+  box-shadow: 0px 16px 32px 0px var(--shadow-1),
+    0px 8px 24px 0px var(--shadow-4);
 }
 
 /* Media */
