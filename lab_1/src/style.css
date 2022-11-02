@@ -1,4 +1,4 @@
-/* Whole page */
+/* Global */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +10,6 @@ body > * {
   color: #2d3436;
 }
 
-/* Headings (1-4) */
 h1 {
   font-size: 96px;
   font-weight: 800;
@@ -41,7 +40,6 @@ h4 {
   letter-spacing: -0.5px;
 }
 
-/* Paragraph */
 p {
   font-size: 24px;
   font-weight: 400;
@@ -49,23 +47,15 @@ p {
   letter-spacing: -0.25px;
 }
 
-/* All links */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Width */
 .default-width {
   width: 81.25%;
   margin-left: auto;
   margin-right: auto;
-}
-
-@media screen and (max-width: 600px) {
-  .default-width {
-    width: 91.67%;
-  }
 }
 
 /* Nav bar */
@@ -90,7 +80,6 @@ nav {
 .nav__logo {
   display: flex;
   align-items: flex-end;
-  /* width: 17.09%; */
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
@@ -159,50 +148,6 @@ nav {
   display: none;
 }
 
-@media screen and (max-width: 600px) {
-  .nav__logo {
-    align-items: center;
-  }
-
-  .nav__logo h3 {
-    font-size: 24px;
-  }
-
-  .nav__block__menu {
-    display: inline;
-  }
-
-  .nav__block__icon {
-    display: none;
-  }
-
-  .nav__pages {
-    display: none;
-  }
-
-  .nav__pages__link::after {
-    content: '';
-  }
-
-  .nav__sign__button {
-    width: 128px;
-    height: 40px;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 32px;
-    letter-spacing: 0.20000000298023224px;
-  }
-
-  .nav--mobile.nav--open {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 10px;
-    padding-bottom: 10px;
-  }
-}
-
 /* Main block with 3 sections */
 main {
   margin-top: 80px;
@@ -232,22 +177,6 @@ main {
 
 .image-grid__title {
   text-shadow: 0px 4px 0px #ffffff;
-}
-
-@media screen and (max-width: 600px) {
-  .image-grid__title {
-    font-size: 64px;
-    font-weight: 900;
-    line-height: 77px;
-    letter-spacing: -1px;
-  }
-
-  .image-grid h2 {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 36px;
-    letter-spacing: 0.25px;
-  }
 }
 
 .image-grid__highlight {
@@ -442,18 +371,6 @@ main {
   width: 270px;
 }
 
-@media screen and (max-width: 600px) {
-  .features__feature {
-    font-weight: 400;
-    font-size: 13.5px;
-    line-height: 24px;
-
-    justify-content: space-between;
-
-    width: 150px;
-  }
-}
-
 .feature__icon {
   width: 70px;
   height: 70px;
@@ -507,18 +424,6 @@ main {
   color: #6c5ce7;
 
   margin-top: 15px;
-}
-
-@media screen and (max-width: 600px) {
-  .feature__button {
-    height: 36px;
-    width: 109.5px;
-
-    font-weight: 700;
-    font-size: 13.5px;
-    line-height: 24px;
-    letter-spacing: 0.15px;
-  }
 }
 
 /* Section #3: Pricing*/
@@ -731,12 +636,6 @@ footer {
   width: 50%;
 }
 
-@media screen and (max-width: 600px) {
-  .footer__item {
-    width: 100%;
-  }
-}
-
 .footer__item__title {
   font-weight: 800;
   font-size: 12px;
@@ -772,7 +671,6 @@ footer {
   max-height: 104px;
 
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   row-gap: 16px;
   column-gap: 60px;
@@ -884,7 +782,6 @@ footer {
 
   color: #ffffff;
 
-  /* 2 dp • Dark shadow */
   text-shadow: 0px 2px 4px rgba(38, 50, 56, 0.16),
     0px 4px 8px rgba(38, 50, 56, 0.08);
 
@@ -894,4 +791,92 @@ footer {
 
 .form__submit:active {
   box-shadow: 0px 16px 32px 0px #26323814, 0px 8px 24px 0px #2632381a;
+}
+
+/* Media */
+
+@media screen and (max-width: 600px) {
+  .default-width {
+    width: 91.67%;
+  }
+
+  .nav__logo {
+    align-items: center;
+  }
+
+  .nav__logo h3 {
+    font-size: 24px;
+  }
+
+  .nav__block__menu {
+    display: inline;
+  }
+
+  .nav__block__icon {
+    display: none;
+  }
+
+  .nav__pages {
+    display: none;
+  }
+
+  .nav__pages__link::after {
+    content: '';
+  }
+
+  .nav__sign__button {
+    width: 128px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0.20000000298023224px;
+  }
+
+  .nav--mobile.nav--open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    padding-bottom: 10px;
+  }
+
+  .image-grid__title {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 77px;
+    letter-spacing: -1px;
+  }
+
+  .image-grid h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0.25px;
+  }
+
+  .features__feature {
+    font-weight: 400;
+    font-size: 13.5px;
+    line-height: 24px;
+
+    justify-content: space-between;
+
+    width: 150px;
+  }
+
+  .feature__button {
+    height: 36px;
+    width: 109.5px;
+
+    font-weight: 700;
+    font-size: 13.5px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+  }
+
+  .footer__item {
+    width: 100%;
+  }
 }
