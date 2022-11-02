@@ -233,7 +233,7 @@ main {
   margin-top: 64px;
   justify-content: center;
 
-  overflow-x: overlay;
+  overflow-x: auto;
 }
 
 .image-grid__item {
@@ -507,7 +507,7 @@ main {
 .prices__billing-card--prior::after {
   content: '';
   position: absolute;
-  background: url('./img/🎨\ Wiggle.svg');
+  background: url('./img/Wiggle.svg');
   bottom: -30px;
   left: -30px;
   width: 200px;
