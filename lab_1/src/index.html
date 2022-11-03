@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Grid</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__block default-width">
+        <div class="nav__logo">
+          <img alt="menu" src="./img/icon-menu.svg" class="nav__block__menu" />
+          <img alt="" src="./img/icon-layout.svg" class="nav__block__icon" />
+          <h3>Grid</h3>
+        </div>
+        <span class="nav__pages">
+          <a class="nav__pages__link nav__pages__link--selected" href="#"
+            >How it works</a
+          ><a class="nav__pages__link" href="#">Who we are</a
+          ><a class="nav__pages__link" href="#">What we do</a
+          ><a class="nav__pages__link" href="#">Contact us</a>
+        </span>
+        <span class="nav__sign">
+          <button class="nav__sign__button">Sign In</button>
+        </span>
+      </div>
+      <div class="nav--mobile">
+        <a class="nav--mobile__page nav__pages__link" href="#">How it works</a
+        ><a class="nav--mobile__page nav__pages__link" href="#">Who we are</a
+        ><a class="nav--mobile__page nav__pages__link" href="#">What we do</a
+        ><a class="nav--mobile__page nav__pages__link" href="#">Contact us</a>
+      </div>
+    </nav>
+    <main>
+      <img alt="" src="./img/main-bg.png" class="bg-rectangle" />
+      <img alt="" src="./img/Dots-1.svg" class="bg-dots" />
+      <section class="image-grid default-width">
+        <h1 class="image-grid__title">
+          Combine <span class="image-grid__highlight">fine</span> images
+        </h1>
+        <h2>To represent a product</h2>
+        <div class="image-grid__items">
+          <div class="image-grid__item image-grid__item--first">
+            Use mixed grid with imagery, replace with your own photos and
+            descriptions
+          </div>
+          <div class="image-grid__item image-grid__item--second">
+            <img src="./img/Simple-5.png" alt="consider it done!/" />
+            <div class="image-captions">Consider it done!</div>
+          </div>
+          <div class="image-grid__item image-grid__item--third">
+            This is multipurpose grid, it fits for portfolio, services or agency
+            web site
+          </div>
+          <div class="image-grid__item image-grid__item--fourth">
+            <img src="./img/Simple-6.png" alt="our aim" />
+            <div class="image-captions">
+              We aimed to deliver HQ templates for Figma <br />
+              <span class="image-captions--smaller">Used by 123 people</span>
+            </div>
+          </div>
+          <div class="image-grid__item image-grid__item--fifth">
+            <img alt="A" src="./img/Simple.png" />
+          </div>
+          <div class="image-grid__item image-grid__item--sixth">
+            <img alt="nike" src="./img/Simple-3.png" />
+          </div>
+          <div class="image-grid__item image-grid__item--seventh">
+            <button class="image-grid__follow-link">Learn more</button>
+          </div>
+          <div class="image-grid__item image-grid__item--eigth">
+            <img alt="change by design" src="./img/Simple-1.png" />
+          </div>
+          <div class="image-grid__item image-grid__item--ninth">
+            <img src="./img/Simple-2.png" alt="see my goal?" />
+            <div class="image-captions">See my goal?</div>
+          </div>
+          <div class="image-grid__item image-grid__item--tenth">
+            <img alt="window" src="./img/Simple-4.png" />
+          </div>
+        </div>
+      </section>
+      <section class="second-section default-width">
+        <h4>Delivering good designs since 1954 🚚💨</h4>
+        <p>
+          We’re the first multi-purpose design kit solutions for businesses. We
+          help you bridge<br />gaps between your layouts, templates and
+          developers to empower all involved.
+        </p>
+        <div class="features">
+          <div class="features__feature">
+            <div class="feature__icon icon__phone"></div>
+            <span class="feature__title">Support</span>
+            <div class="feature__description">
+              Delivering faster and more personalized support with shared
+              screens and cool design systems for Figma
+            </div>
+            <button class="feature__button">Learn more</button>
+          </div>
+          <div class="features__feature">
+            <div class="feature__icon icon__chart"></div>
+            <span class="feature__title">Sales growth</span>
+            <div class="feature__description">
+              Identify qualified customers with easy-to-use live chat messaging
+              and AI-based Sales Bot
+            </div>
+            <button class="feature__button">Learn more</button>
+          </div>
+          <div class="features__feature">
+            <div class="feature__icon icon__zap"></div>
+            <span class="feature__title">Coponents-driven</span>
+            <div class="feature__description">
+              Delivering faster and more personalized support with shared
+              screens and cool design systems for Figma
+            </div>
+            <button class="feature__button">Learn more</button>
+          </div>
+          <div class="features__feature">
+            <div class="feature__icon icon__thumb"></div>
+            <span class="feature__title">Swap the icon</span>
+            <div class="feature__description">
+              You can toggle to any icon within Instances and customize outlined
+              stroke to more bolder or lighter
+            </div>
+            <button class="feature__button">Learn more</button>
+          </div>
+        </div>
+      </section>
+      <section class="default-width">
+        <h2 class="prices__header">Affordable pricing</h2>
+        <h4 class="prices__subheader">
+          Bill me
+          <span>
+            <span
+              class="prices__billing-option prices__billing-option--selected"
+              >monthly</span
+            >
+            •
+            <span class="prices__billing-option">yearly</span>
+          </span>
+        </h4>
+        <div class="prices__billing-cards">
+          <div class="prices__billing-card">
+            <div class="card__content">
+              <span class="card__name">Like a pussy</span>
+              <div class="card__price">
+                <span class="card__price__cost">Free</span> /
+                <span class="card__price__period">forever</span>
+              </div>
+              <ul class="card__procs card__procs">
+                <li class="procs__item procs__item--gray">
+                  Components-driven system
+                </li>
+                <li class="procs__item procs__item--gray">
+                  Sales-boosting landing pages
+                </li>
+                <li class="procs__item procs__item--gray">
+                  Awesome Feather icons pack
+                </li>
+              </ul>
+              <button class="card__proceed">Try for free</button>
+            </div>
+          </div>
+          <div class="prices__billing-card prices__billing-card--prior">
+            <div class="card__content">
+              <div class="card__name">
+                👤 Individual
+                <div class="card__name--best-option">best!</div>
+              </div>
+              <div class="card__price">
+                <span class="card__price__cost">$24</span> /
+                <span class="card__price__period">month</span>
+              </div>
+              <ul class="card__procs">
+                <li class="procs__item procs__item--yellow">
+                  Components-driven system
+                </li>
+                <li class="procs__item procs__item--yellow">
+                  Sales-boosting landing pages
+                </li>
+                <li class="procs__item procs__item--yellow">
+                  Awesome Feather icons pack
+                </li>
+                <li class="procs__item procs__item--yellow">
+                  Themed into 3 different styles
+                </li>
+                <li class="procs__item procs__item--yellow">
+                  Will help to learn Figma
+                </li>
+              </ul>
+              <button class="card__proceed">Regular license</button>
+            </div>
+          </div>
+          <div class="prices__billing-card">
+            <div class="card__content">
+              <span class="card__name">👥 Corporate</span>
+              <div class="card__price">
+                <span class="card__price__cost">$12</span> /
+                <span class="card__price__period">editor</span>
+              </div>
+              <ul class="card__procs">
+                <li class="procs__item procs__item--green">
+                  Components-driven system
+                </li>
+                <li class="procs__item procs__item--green">
+                  Sales-boosting landing pages
+                </li>
+                <li class="procs__item procs__item--green">
+                  Awesome Feather icons pack
+                </li>
+                <li class="procs__item procs__item--green">
+                  Themed into 3 different styles
+                </li>
+              </ul>
+              <button class="card__proceed">Extend license</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer__block default-width">
+        <div class="footer__item footer__social">
+          <span class="footer__item__title">follow us</span>
+          <div class="social__items">
+            <div class="social__item social__fb">
+              <a href="#"><img alt="fb" src="./img/icon-facebook.svg" /></a>
+            </div>
+            <div class="social__item social__linkedin">
+              <a href="#"
+                ><img alt="linkedin" src="./img/icon-linkedin.svg"
+              /></a>
+            </div>
+            <div class="social__item social__slack">
+              <a href="#"><img alt="slack" src="./img/icon-slack.svg" /></a>
+            </div>
+            <div class="social__item social__twitter">
+              <a href="#"><img alt="twitter" src="./img/icon-twitter.svg" /></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__item footer__email">
+          <span class="footer__item__title">follow us</span>
+          <a href="mailto:hello@fapsterapp.com" class="email__link"
+            >hello@fapsterapp.com</a
+          >
+        </div>
+        <div class="footer__item footer__info">
+          <span class="footer__item__title">information</span>
+          <div class="info__links">
+            <a href="#" class="info__link">About Fapster app</a>
+            <a href="#" class="info__link">Get in Touch</a>
+            <a href="#" class="info__link">Things We Like</a>
+            <a href="#" class="info__link">Onhovered / Active</a>
+            <a href="#" class="info__link">Privacy Policy</a>
+            <a href="#" class="info__link">Terms of Service</a>
+            <a href="#" class="info__link">We are hiring!</a>
+            <a href="#" class="info__link">Resources</a>
+          </div>
+        </div>
+        <div class="footer__item footer__form">
+          <span class="footer__item__title">keep in touch</span>
+          <form class="form__send">
+            <div class="form__row">
+              <input
+                class="form__input input__name form__contacts"
+                placeholder="Your name"
+              />
+              <input
+                class="form__input input__email form__contacts"
+                placeholder="E-mail"
+              />
+            </div>
+            <div class="form__row">
+              <textarea
+                class="form__input input__message"
+                placeholder="Leave your message"
+              ></textarea>
+              <button type="submit" class="form__submit">SEND</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>
