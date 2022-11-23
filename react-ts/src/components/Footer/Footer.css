@@ -1,0 +1,19 @@
+footer {
+  background-color: gray;
+  color: white;
+  padding: 20px 30px 10px;
+  margin-top: auto;
+}
+
+.footer__logo {
+  height: 60px;
+}
+
+.footer__link {
+  color: white;
+  text-decoration: none;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
