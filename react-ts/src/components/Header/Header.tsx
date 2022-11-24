@@ -1,14 +1,7 @@
-import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
-  const [currentPage, setCurrentPage] = useState<string>('');
-
-  useEffect(
-    () => setCurrentPage(sessionStorage.getItem('currentPage') ?? ''),
-    []
-  );
-
   return (
     <header>
       <img
@@ -17,36 +10,33 @@ const Header = () => {
         alt='marvel logo'
       ></img>
       <nav className='header__links'>
-        <a
-          href='./characters'
-          className={
-            'header__link' +
-            (currentPage === 'characters' ? ' header__link--current' : '')
+        <NavLink
+          to='./characters'
+          className={({ isActive }: { isActive: boolean }) =>
+            isActive ? 'header__link header__link--current' : 'header__link'
           }
           id='characters'
         >
           Characters
-        </a>
-        <a
-          href='./comics'
-          className={
-            'header__link' +
-            (currentPage === 'comics' ? ' header__link--current' : '')
+        </NavLink>
+        <NavLink
+          to='./comics'
+          className={({ isActive }: { isActive: boolean }) =>
+            isActive ? 'header__link header__link--current' : 'header__link'
           }
           id='comics'
         >
           Comics
-        </a>
-        <a
-          href='./series'
-          className={
-            'header__link' +
-            (currentPage === 'series' ? ' header__link--current' : '')
+        </NavLink>
+        <NavLink
+          to='./series'
+          className={({ isActive }: { isActive: boolean }) =>
+            isActive ? 'header__link header__link--current' : 'header__link'
           }
           id='series'
         >
           Series
-        </a>
+        </NavLink>
       </nav>
     </header>
   );
