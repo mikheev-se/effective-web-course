@@ -1,41 +1,6 @@
 import { Button, TextField } from '@mui/material';
-import CardType from '../../types/card';
+import { comics } from '../../mocks';
 import Card from '../Card/Card';
-
-let cards: CardType[] = [
-  {
-    id: 0,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/c/b0/63755f7fcabd3/clean.jpg',
-    name: 'Avengers Forever',
-    description:
-      'The Pillars: Conclusion! The greatest collection of Avengers ever seen has been assembled from across the Multiverse, representing each of the core pillars of the group’s infinite incarnations.',
-  },
-  {
-    id: 1,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/6/c0/637674be9e2c0/clean.jpg',
-    name: 'X-Men',
-    description:
-      'As the new X-Men team brings deals with a seemingly unstoppable foe, one X-Man wrestles with the fact they’ve gone way too far',
-  },
-  {
-    id: 2,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/3/40/63755fa5a1821/clean.jpg',
-    name: 'The Amazing Spider-Man',
-    description:
-      'Dark Web Prelude! We haven’t seen Chasm since ASM #894 and the FCBD issue, but that doesn’t mean he hasn’t been busy.',
-  },
-  {
-    id: 3,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/6/c0/63755f7e41d5a/clean.jpg',
-    name: 'Fantastic Four: Facsimile Edition',
-    description:
-      'The first appearance of the Black Panther - from the wild imaginations of Stan Lee and Jack Kirby at the peak of their creative powers!',
-  },
-];
 
 function Comics() {
   sessionStorage['currentPage'] = 'comics';
@@ -43,7 +8,7 @@ function Comics() {
     <main>
       <div className='main__title'>
         <h1>
-          Comics <span className='title__count'>({cards.length})</span>
+          Comics <span className='title__count'>({comics.length})</span>
         </h1>
       </div>
       <form className='search-form'>
@@ -69,8 +34,8 @@ function Comics() {
         </Button>
       </form>
       <div className='main__content'>
-        {cards.map((card) => (
-          <Card {...card} key={card.id} />
+        {comics.map((comic) => (
+          <Card {...comic} key={comic.id} />
         ))}
       </div>
     </main>

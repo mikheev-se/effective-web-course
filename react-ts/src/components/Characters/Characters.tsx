@@ -1,99 +1,6 @@
 import { Button, TextField } from '@mui/material';
-import CardType from '../../types/card';
 import Card from '../Card/Card';
-
-let cards: CardType[] = [
-  {
-    id: 0,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/standard_incredible.jpg',
-    name: '3-D Man',
-    description: 'No description provided',
-  },
-  {
-    id: 1,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16/standard_incredible.jpg',
-    name: 'A-Bomb (HAS)',
-    description:
-      "Rick Jones has been Hulk's best bud всё я устал переписывать текст со скришнота пусть так будет",
-  },
-  {
-    id: 2,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/standard_incredible.jpg',
-    name: '3-D Man',
-    description: 'No description provided',
-  },
-  {
-    id: 3,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16/standard_incredible.jpg',
-    name: 'A-Bomb (HAS)',
-    description:
-      "Rick Jones has been Hulk's best bud всё я устал переписывать текст со скришнота пусть так будет",
-  },
-  {
-    id: 4,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/standard_incredible.jpg',
-    name: '3-D Man',
-    description: 'No description provided',
-  },
-  {
-    id: 5,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16/standard_incredible.jpg',
-    name: 'A-Bomb (HAS)',
-    description:
-      "Rick Jones has been Hulk's best bud всё я устал переписывать текст со скришнота пусть так будет",
-  },
-  {
-    id: 6,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/standard_incredible.jpg',
-    name: '3-D Man',
-    description: 'No description provided',
-  },
-  {
-    id: 7,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16/standard_incredible.jpg',
-    name: 'A-Bomb (HAS)',
-    description:
-      "Rick Jones has been Hulk's best bud всё я устал переписывать текст со скришнота пусть так будет",
-  },
-  {
-    id: 8,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/standard_incredible.jpg',
-    name: '3-D Man',
-    description: 'No description provided',
-  },
-  {
-    id: 9,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16/standard_incredible.jpg',
-    name: 'A-Bomb (HAS)',
-    description:
-      "Rick Jones has been Hulk's best bud всё я устал переписывать текст со скришнота пусть так будет",
-  },
-  {
-    id: 10,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/standard_incredible.jpg',
-    name: '3-D Man',
-    description: 'No description provided',
-  },
-  {
-    id: 11,
-    imageLink:
-      'https://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16/standard_incredible.jpg',
-    name: 'A-Bomb (HAS)',
-    description:
-      "Rick Jones has been Hulk's best bud всё я устал переписывать текст со скришнота пусть так будет",
-  },
-];
+import { characters } from '../../mocks';
 
 function Characters() {
   sessionStorage['currentPage'] = 'characters';
@@ -101,7 +8,7 @@ function Characters() {
     <main>
       <div className='main__title'>
         <h1>
-          Characters <span className='title__count'>({cards.length})</span>
+          Characters <span className='title__count'>({characters.length})</span>
         </h1>
       </div>
       <form className='search-form'>
@@ -127,8 +34,8 @@ function Characters() {
         </Button>
       </form>
       <div className='main__content'>
-        {cards.map((card) => (
-          <Card {...card} key={card.id} />
+        {characters.map((character) => (
+          <Card {...character} key={character.id} />
         ))}
       </div>
     </main>
