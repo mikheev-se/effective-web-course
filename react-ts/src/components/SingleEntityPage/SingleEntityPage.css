@@ -1,0 +1,35 @@
+:root {
+  --link-blue: #96aab5;
+}
+
+.entity-image {
+  width: 100%;
+  height: 55vh;
+}
+
+.entity-image img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.entity-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0;
+  row-gap: 20px;
+}
+
+.entity-content > * {
+  width: 25%;
+  min-width: 300px;
+}
+
+.entity-content h5 {
+  margin-bottom: 7px;
+}
+
+.entity-content a {
+  color: var(--link-blue);
+}
