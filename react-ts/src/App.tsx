@@ -10,6 +10,9 @@ import Header from './components/Header/Header';
 import Characters from './components/Characters/Characters';
 import Comics from './components/Comics/Comics';
 import Series from './components/Series/Series';
+import SingleCharacter from './components/SingleCharacter/SingleCharacter';
+import SingleComic from './components/SignleComic/SingleComic';
+import SingleSerial from './components/SingleSerial/SingleSerial';
 
 function App() {
   return (
@@ -18,8 +21,11 @@ function App() {
       {useRoutes([
         { path: '/', element: <div /> },
         { path: 'characters', element: <Characters /> },
+        { path: 'characters/:id', element: <SingleCharacter /> },
         { path: 'comics', element: <Comics /> },
+        { path: 'comics/:id', element: <SingleComic /> },
         { path: 'series', element: <Series /> },
+        { path: 'series/:id', element: <SingleSerial /> },
       ])}
       <Footer />
     </div>
