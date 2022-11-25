@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       <img
-        src='./marvel_logo.svg'
+        src='/marvel_logo.svg'
         className='header__logo'
         alt='marvel logo'
       ></img>

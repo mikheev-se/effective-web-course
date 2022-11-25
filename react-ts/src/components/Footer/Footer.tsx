@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer>
       <img
-        src='./marvel_logo.svg'
+        src='/marvel_logo.svg'
         className='footer__logo'
         alt='marvel logo'
       ></img>
