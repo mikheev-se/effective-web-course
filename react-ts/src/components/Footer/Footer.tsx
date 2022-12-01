@@ -11,7 +11,7 @@ function Footer() {
       <div className='footer__copyright'>
         Data provided by Marvel © {new Date().getFullYear()} MARVEL
       </div>
-      <a className='footer__link' href='developer.marvel.com'>
+      <a className='footer__link' href='https://developer.marvel.com'>
         developer.marvel.com
       </a>
     </footer>
