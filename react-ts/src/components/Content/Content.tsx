@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import PageContent from '../../types/content';
 import Card from '../Card/Card';
 import './Content.css';
@@ -34,15 +34,19 @@ function Content({ name, items }: PageContent) {
         </Button>
       </form>
       <div className='main__content'>
-        {items.map((item) => (
-          <Card
-            id={item.id}
-            imageLink={item.imageLink}
-            name={item.name}
-            description={item.description}
-            key={item.id}
-          />
-        ))}
+        {items.length ? (
+          items.map((item) => (
+            <Card
+              id={item.id}
+              imageLink={item.imageLink}
+              name={item.name}
+              description={item.description}
+              key={item.id}
+            />
+          ))
+        ) : (
+          <Typography variant='body1'>No content here currently</Typography>
+        )}
       </div>
     </main>
   );
