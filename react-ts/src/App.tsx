@@ -4,7 +4,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './App.css';
 
-import { useRoutes } from 'react-router-dom';
+import { Navigate, useRoutes } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Characters from './components/Characters/Characters';
@@ -19,7 +19,7 @@ function App() {
     <div id='page'>
       <Header />
       {useRoutes([
-        { path: '/', element: <div /> },
+        { path: '/', element: <Navigate to='characters' /> },
         { path: 'characters', element: <Characters /> },
         { path: 'characters/:id', element: <SingleCharacter /> },
         { path: 'comics', element: <Comics /> },

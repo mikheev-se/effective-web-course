@@ -10,7 +10,7 @@ import CardType from '../../types/card';
 function Card({ id, imageLink, name, description }: CardType) {
   return (
     <MUICard sx={{ width: '300px' }}>
-      <Link to={`./${id}`}>
+      <Link to={`${id}`}>
         <CardMedia
           component='img'
           height='180'
