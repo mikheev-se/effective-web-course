@@ -1,24 +1,37 @@
-import { Button, TextField, Typography } from '@mui/material';
+import { Button, Pagination, TextField, Typography } from '@mui/material';
 import PageContent from '../../types/content';
 import Card from '../Card/Card';
 import './Content.css';
 
-function Content({ name, items }: PageContent) {
+function Content({
+  name,
+  items,
+  total,
+  limit,
+  page,
+  setPage,
+  query,
+  setQuery,
+}: PageContent) {
+  const textFieldId = 'main__input';
+
   return (
     <main>
       <div className='main__title'>
         <h1>
-          {name} <span className='title__count'>({items.length})</span>
+          {name} <span className='title__count'>({total})</span>
         </h1>
       </div>
       <form className='search-form'>
         <TextField
+          id={textFieldId}
           type='search'
           placeholder={`Search for ${name} by Name`}
           size='small'
           sx={{
             width: '100%',
           }}
+          defaultValue={query}
         ></TextField>
         <Button
           variant='contained'
@@ -28,6 +41,11 @@ function Content({ name, items }: PageContent) {
             ':hover': {
               backgroundColor: 'var(--search-yellow)',
             },
+          }}
+          onClick={(_) => {
+            setQuery(
+              (document.getElementById(textFieldId) as HTMLInputElement).value
+            );
           }}
         >
           Search
@@ -47,6 +65,15 @@ function Content({ name, items }: PageContent) {
         ) : (
           <Typography variant='body1'>No content here currently</Typography>
         )}
+      </div>
+      <div className='main__pages'>
+        <Pagination
+          page={page}
+          count={Math.floor(total / limit) + 1}
+          onChange={(_, value) => {
+            setPage(value);
+          }}
+        />
       </div>
     </main>
   );
