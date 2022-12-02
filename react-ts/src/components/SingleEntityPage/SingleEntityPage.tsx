@@ -17,20 +17,21 @@ function SingleEntityPage({ entity, relatedEntities }: SinglePage) {
           </Typography>
           <Typography variant='body1'>{entity.description}</Typography>
         </div>
-        {relatedEntities.map((ent) => (
-          <div key={ent}>
-            <Typography variant='h5' sx={{ fontWeight: 900 }}>
-              {ent}
+        {Object.entries(relatedEntities).map(([key, value]) => (
+          <div key={key}>
+            <Typography
+              variant='h5'
+              sx={{ fontWeight: 900, textTransform: 'capitalize' }}
+            >
+              {key}
             </Typography>
-            <Typography variant='body1'>
-              <Link to={''}>здесь будет ссылка</Link>
-            </Typography>
-            <Typography variant='body1'>
-              <Link to={''}>и здесь кстати тоже</Link>
-            </Typography>
-            <Typography variant='body1'>
-              <Link to={''}>когда апи будет офк</Link>
-            </Typography>
+            {value.map((rel, idx) => (
+              <Typography variant='body1' key={idx}>
+                <Link to={`/${key}/${rel.resourceURI.split('/').at(-1)}`}>
+                  {rel.name}
+                </Link>
+              </Typography>
+            ))}
           </div>
         ))}
       </div>
