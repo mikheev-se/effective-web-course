@@ -1,11 +1,15 @@
 import environments from '../config/environments';
+import getListResponse from '../types/apiResponse';
 import { Comic } from '../types/comic';
 import instance from './helper/axios';
 
-const getComicsList = async (): Promise<Comic[]> => {
+const getComicsList = async (
+  offset: number = 0
+): Promise<getListResponse & { comics: Comic[] }> => {
   const response = (
     await instance.get('v1/public/comics', {
       params: {
+        offset: offset,
         apikey: environments.apiKey,
       },
     })
@@ -13,20 +17,25 @@ const getComicsList = async (): Promise<Comic[]> => {
 
   const comics = response.results;
 
-  return comics.map((res: any): Comic => {
-    const comic: Comic = {
-      id: res.id,
-      name: res.title,
-      imageLink: res.thumbnail.path + '.' + res.thumbnail.extension,
-      description: res.description
-        ? res.description
-        : 'No description provided',
-      characters: res.characters.items,
-      series: [res.series],
-    };
+  return {
+    limit: response.limit,
+    total: response.total,
+    count: response.count,
+    comics: comics.map((res: any): Comic => {
+      const comic: Comic = {
+        id: res.id,
+        name: res.title,
+        imageLink: res.thumbnail.path + '.' + res.thumbnail.extension,
+        description: res.description
+          ? res.description
+          : 'No description provided',
+        characters: res.characters.items,
+        series: [res.series],
+      };
 
-    return comic;
-  });
+      return comic;
+    }),
+  };
 };
 
 const getComic = async (id: number): Promise<Comic> => {

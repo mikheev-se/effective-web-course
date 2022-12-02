@@ -1,11 +1,15 @@
 import environments from '../config/environments';
+import getListResponse from '../types/apiResponse';
 import { Serial } from '../types/serial';
 import instance from './helper/axios';
 
-const getSeriesList = async (): Promise<Serial[]> => {
+const getSeriesList = async (
+  offset: number = 0
+): Promise<getListResponse & { series: Serial[] }> => {
   const response = (
     await instance.get('v1/public/series', {
       params: {
+        offset: offset,
         apikey: environments.apiKey,
       },
     })
@@ -13,20 +17,25 @@ const getSeriesList = async (): Promise<Serial[]> => {
 
   const series = response.results;
 
-  return series.map((res: any): Serial => {
-    const serial: Serial = {
-      id: res.id,
-      name: res.title,
-      imageLink: res.thumbnail.path + '.' + res.thumbnail.extension,
-      description: res.description
-        ? res.description
-        : 'No description provided',
-      characters: res.characters.items,
-      comics: res.comics.items,
-    };
+  return {
+    limit: response.limit,
+    total: response.total,
+    count: response.count,
+    series: series.map((res: any): Serial => {
+      const serial: Serial = {
+        id: res.id,
+        name: res.title,
+        imageLink: res.thumbnail.path + '.' + res.thumbnail.extension,
+        description: res.description
+          ? res.description
+          : 'No description provided',
+        characters: res.characters.items,
+        comics: res.comics.items,
+      };
 
-    return serial;
-  });
+      return serial;
+    }),
+  };
 };
 
 const getSerial = async (id: number): Promise<Serial> => {

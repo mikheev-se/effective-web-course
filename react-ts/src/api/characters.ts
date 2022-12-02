@@ -1,11 +1,15 @@
 import environments from '../config/environments';
+import getListResponse from '../types/apiResponse';
 import { Character } from '../types/character';
 import instance from './helper/axios';
 
-const getCharactersList = async (): Promise<Character[]> => {
+const getCharactersList = async (
+  offset: number = 0
+): Promise<getListResponse & { characters: Character[] }> => {
   const response = (
     await instance.get('v1/public/characters', {
       params: {
+        offset: offset,
         apikey: environments.apiKey,
       },
     })
@@ -13,20 +17,25 @@ const getCharactersList = async (): Promise<Character[]> => {
 
   const characters = response.results;
 
-  return characters.map((res: any): Character => {
-    const character: Character = {
-      id: res.id,
-      name: res.name,
-      imageLink: res.thumbnail.path + '.' + res.thumbnail.extension,
-      description: res.description
-        ? res.description
-        : 'No description provided',
-      comics: res.comics.items,
-      series: res.series.items,
-    };
+  return {
+    limit: response.limit,
+    total: response.total,
+    count: response.count,
+    characters: characters.map((res: any): Character => {
+      const character: Character = {
+        id: res.id,
+        name: res.name,
+        imageLink: res.thumbnail.path + '.' + res.thumbnail.extension,
+        description: res.description
+          ? res.description
+          : 'No description provided',
+        comics: res.comics.items,
+        series: res.series.items,
+      };
 
-    return character;
-  });
+      return character;
+    }),
+  };
 };
 
 const getCharacter = async (id: number): Promise<Character> => {
