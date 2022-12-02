@@ -23,11 +23,14 @@ class ComicsStore {
   }
 
   @action
-  getComicsList = async (offset: number = 0) => {
+  getComicsList = async (offset: number = 0, titleStartsWith: string = '') => {
     try {
       this.loading = true;
 
-      const { limit, total, count, comics } = await getComicsList(offset);
+      const { limit, total, count, comics } = await getComicsList(
+        offset,
+        titleStartsWith
+      );
 
       runInAction(() => {
         this.limit = limit;

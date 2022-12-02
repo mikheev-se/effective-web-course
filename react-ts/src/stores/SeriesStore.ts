@@ -23,16 +23,18 @@ class SeriesStore {
   }
 
   @action
-  getSeriesList = async (offset: number = 0) => {
+  getSeriesList = async (offset: number = 0, titleStartsWith: string = '') => {
     try {
       this.loading = true;
 
-      const { limit, total, count, series } = await getSeriesList(offset);
+      const { limit, total, count, series } = await getSeriesList(
+        offset,
+        titleStartsWith
+      );
 
       runInAction(() => {
         this.limit = limit;
         this.total = total;
-        this.count = count;
         this.series = series;
       });
     } catch (error) {

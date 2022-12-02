@@ -23,12 +23,16 @@ class CharactresStore {
   }
 
   @action
-  getCharactersList = async (offset: number = 0) => {
+  getCharactersList = async (
+    offset: number = 0,
+    nameStartsWith: string = ''
+  ) => {
     try {
       this.loading = true;
 
       const { limit, total, count, characters } = await getCharactersList(
-        offset
+        offset,
+        nameStartsWith
       );
 
       runInAction(() => {
