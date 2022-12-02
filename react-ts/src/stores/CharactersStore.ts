@@ -4,6 +4,15 @@ import { Character } from '../types/character';
 
 class CharactresStore {
   @observable
+  limit: number = 1;
+
+  @observable
+  total: number = 0;
+
+  @observable
+  count: number = 0;
+
+  @observable
   characters: Character[] = [];
 
   @observable
@@ -14,13 +23,18 @@ class CharactresStore {
   }
 
   @action
-  getCharactersList = async () => {
+  getCharactersList = async (offset: number = 0) => {
     try {
       this.loading = true;
 
-      const characters = await getCharactersList();
+      const { limit, total, count, characters } = await getCharactersList(
+        offset
+      );
 
       runInAction(() => {
+        this.limit = limit;
+        this.total = total;
+        this.count = count;
         this.characters = characters;
       });
     } catch (error) {

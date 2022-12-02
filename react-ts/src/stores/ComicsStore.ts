@@ -4,6 +4,15 @@ import { Comic } from '../types/comic';
 
 class ComicsStore {
   @observable
+  limit: number = 1;
+
+  @observable
+  total: number = 0;
+
+  @observable
+  count: number = 0;
+
+  @observable
   comics: Comic[] = [];
 
   @observable
@@ -14,13 +23,16 @@ class ComicsStore {
   }
 
   @action
-  getComicsList = async () => {
+  getComicsList = async (offset: number = 0) => {
     try {
       this.loading = true;
 
-      const comics = await getComicsList();
+      const { limit, total, count, comics } = await getComicsList(offset);
 
       runInAction(() => {
+        this.limit = limit;
+        this.total = total;
+        this.count = count;
         this.comics = comics;
       });
     } catch (error) {
