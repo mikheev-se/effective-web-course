@@ -4,14 +4,18 @@ import { Comic } from '../types/comic';
 import instance from './helper/axios';
 
 const getComicsList = async (
-  offset: number = 0
+  offset: number = 0,
+  titleStartsWith: string = ''
 ): Promise<getListResponse & { comics: Comic[] }> => {
+  const params = {
+    offset: offset,
+    apikey: environments.apiKey,
+    ...(titleStartsWith ? { titleStartsWith: titleStartsWith.toString() } : {}),
+  };
+
   const response = (
     await instance.get('v1/public/comics', {
-      params: {
-        offset: offset,
-        apikey: environments.apiKey,
-      },
+      params: params,
     })
   ).data.data;
 
@@ -39,26 +43,31 @@ const getComicsList = async (
 };
 
 const getComic = async (id: number): Promise<Comic> => {
-  const response = (
-    await instance.get(`v1/public/comics/${id}`, {
-      params: {
-        apikey: environments.apiKey,
-      },
-    })
-  ).data.data;
+  try {
+    const response = (
+      await instance.get(`v1/public/comics/${id}`, {
+        params: {
+          apikey: environments.apiKey,
+        },
+      })
+    ).data.data;
 
-  const comic = response.results[0];
+    const comic = response.results[0];
 
-  return {
-    id: comic.id,
-    name: comic.title,
-    imageLink: comic.thumbnail.path + '.' + comic.thumbnail.extension,
-    description: comic.description
-      ? comic.description
-      : 'No description provided',
-    characters: comic.characters.items,
-    series: [comic.series],
-  };
+    return {
+      id: comic.id,
+      name: comic.title,
+      imageLink: comic.thumbnail.path + '.' + comic.thumbnail.extension,
+      description: comic.description
+        ? comic.description
+        : 'No description provided',
+      characters: comic.characters.items,
+      series: [comic.series],
+    };
+  } catch (err) {
+    console.error(err);
+    return {} as Comic;
+  }
 };
 
 export { getComicsList, getComic };

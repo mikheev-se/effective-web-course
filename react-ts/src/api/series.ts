@@ -4,14 +4,18 @@ import { Serial } from '../types/serial';
 import instance from './helper/axios';
 
 const getSeriesList = async (
-  offset: number = 0
+  offset: number = 0,
+  titleStartsWith: string = ''
 ): Promise<getListResponse & { series: Serial[] }> => {
+  const params = {
+    offset: offset,
+    apikey: environments.apiKey,
+    ...(titleStartsWith ? { titleStartsWith: titleStartsWith.toString() } : {}),
+  };
+
   const response = (
     await instance.get('v1/public/series', {
-      params: {
-        offset: offset,
-        apikey: environments.apiKey,
-      },
+      params: params,
     })
   ).data.data;
 
@@ -39,26 +43,31 @@ const getSeriesList = async (
 };
 
 const getSerial = async (id: number): Promise<Serial> => {
-  const response = (
-    await instance.get(`v1/public/series/${id}`, {
-      params: {
-        apikey: environments.apiKey,
-      },
-    })
-  ).data.data;
+  try {
+    const response = (
+      await instance.get(`v1/public/series/${id}`, {
+        params: {
+          apikey: environments.apiKey,
+        },
+      })
+    ).data.data;
 
-  const serial = response.results[0];
+    const serial = response.results[0];
 
-  return {
-    id: serial.id,
-    name: serial.title,
-    imageLink: serial.thumbnail.path + '.' + serial.thumbnail.extension,
-    description: serial.description
-      ? serial.description
-      : 'No description provided',
-    characters: serial.characters.items,
-    comics: serial.comics.items,
-  };
+    return {
+      id: serial.id,
+      name: serial.title,
+      imageLink: serial.thumbnail.path + '.' + serial.thumbnail.extension,
+      description: serial.description
+        ? serial.description
+        : 'No description provided',
+      characters: serial.characters.items,
+      comics: serial.comics.items,
+    };
+  } catch (err) {
+    console.error(err);
+    return {} as Serial;
+  }
 };
 
 export { getSeriesList, getSerial };

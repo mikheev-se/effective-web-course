@@ -4,14 +4,18 @@ import { Character } from '../types/character';
 import instance from './helper/axios';
 
 const getCharactersList = async (
-  offset: number = 0
+  offset: number = 0,
+  nameStartsWith: string = ''
 ): Promise<getListResponse & { characters: Character[] }> => {
+  const params = {
+    offset: offset,
+    apikey: environments.apiKey,
+    ...(nameStartsWith ? { nameStartsWith: nameStartsWith.toString() } : {}),
+  };
+
   const response = (
     await instance.get('v1/public/characters', {
-      params: {
-        offset: offset,
-        apikey: environments.apiKey,
-      },
+      params: params,
     })
   ).data.data;
 
