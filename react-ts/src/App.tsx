@@ -11,7 +11,7 @@ import Characters from './components/Characters/Characters';
 import Comics from './components/Comics/Comics';
 import Series from './components/Series/Series';
 import SingleCharacter from './components/SingleCharacter/SingleCharacter';
-import SingleComic from './components/SignleComic/SingleComic';
+import SingleComic from './components/SingleComic/SingleComic';
 import SingleSerial from './components/SingleSerial/SingleSerial';
 
 function App() {
