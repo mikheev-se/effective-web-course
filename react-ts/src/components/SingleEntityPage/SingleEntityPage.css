@@ -33,3 +33,14 @@
 .entity-content a {
   color: var(--link-blue);
 }
+
+.entity-error {
+  align-self: center;
+  margin-top: auto;
+  text-align: center;
+}
+
+.entity-error a {
+  color: var(--link-yellow);
+  text-decoration: underline;
+}
