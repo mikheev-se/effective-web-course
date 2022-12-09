@@ -44,9 +44,7 @@ function Content({
             },
           }}
           onClick={(_) => {
-            setQuery(
-              inputRef.current?.value
-            );
+            setQuery(inputRef.current?.value);
           }}
         >
           Search
@@ -60,6 +58,7 @@ function Content({
               imageLink={item.imageLink}
               name={item.name}
               description={item.description}
+              entityName={name}
               key={item.id}
             />
           ))
