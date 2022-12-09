@@ -1,7 +1,7 @@
 import CardType from './card';
 
 type PageContent = {
-  name: String;
+  name: string;
   items: CardType[];
   total: number;
   limit: number;
