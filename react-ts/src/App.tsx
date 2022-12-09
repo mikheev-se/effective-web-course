@@ -13,6 +13,7 @@ import Series from './components/Series/Series';
 import SingleCharacter from './components/SingleCharacter/SingleCharacter';
 import SingleComic from './components/SingleComic/SingleComic';
 import SingleSerial from './components/SingleSerial/SingleSerial';
+import Favorites from './components/Favorites/Favorites';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         { path: 'comics/:id', element: <SingleComic /> },
         { path: 'series', element: <Series /> },
         { path: 'series/:id', element: <SingleSerial /> },
+        { path: 'favorites', element: <Favorites /> },
       ])}
       <Footer />
     </div>

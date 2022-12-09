@@ -11,7 +11,7 @@ const Header = () => {
       ></img>
       <nav className='header__links'>
         <NavLink
-          to='./characters'
+          to='/characters'
           className={({ isActive }: { isActive: boolean }) =>
             isActive ? 'header__link header__link--current' : 'header__link'
           }
@@ -20,7 +20,7 @@ const Header = () => {
           Characters
         </NavLink>
         <NavLink
-          to='./comics'
+          to='/comics'
           className={({ isActive }: { isActive: boolean }) =>
             isActive ? 'header__link header__link--current' : 'header__link'
           }
@@ -29,13 +29,22 @@ const Header = () => {
           Comics
         </NavLink>
         <NavLink
-          to='./series'
+          to='/series'
           className={({ isActive }: { isActive: boolean }) =>
             isActive ? 'header__link header__link--current' : 'header__link'
           }
           id='series'
         >
           Series
+        </NavLink>
+        <NavLink
+          to='/favorites'
+          className={({ isActive }: { isActive: boolean }) =>
+            isActive ? 'header__link header__link--current' : 'header__link'
+          }
+          id='series'
+        >
+          Favorites
         </NavLink>
       </nav>
     </header>
