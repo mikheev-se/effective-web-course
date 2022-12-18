@@ -1,4 +1,5 @@
 import { Button, Pagination, TextField, Typography } from '@mui/material';
+import React from 'react';
 import PageContent from '../../types/content';
 import Card from '../Card/Card';
 import './Content.css';
@@ -13,7 +14,7 @@ function Content({
   query,
   setQuery,
 }: PageContent) {
-  const textFieldId = 'main__input';
+  const inputRef: React.RefObject<HTMLInputElement> = React.createRef();
 
   return (
     <main>
@@ -24,7 +25,6 @@ function Content({
       </div>
       <form className='search-form'>
         <TextField
-          id={textFieldId}
           type='search'
           placeholder={`Search for ${name} by Name`}
           size='small'
@@ -32,6 +32,7 @@ function Content({
             width: '100%',
           }}
           defaultValue={query}
+          inputRef={inputRef}
         ></TextField>
         <Button
           variant='contained'
@@ -43,9 +44,7 @@ function Content({
             },
           }}
           onClick={(_) => {
-            setQuery(
-              (document.getElementById(textFieldId) as HTMLInputElement).value
-            );
+            setQuery(inputRef.current?.value);
           }}
         >
           Search
@@ -59,6 +58,7 @@ function Content({
               imageLink={item.imageLink}
               name={item.name}
               description={item.description}
+              entityName={name}
               key={item.id}
             />
           ))
